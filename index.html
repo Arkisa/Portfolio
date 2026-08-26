@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Arquiza — Portfolio</title>
+<meta name="description" content="Personal portfolio — developer & maker." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&family=Shippori+Mincho:wght@400;500;600;800&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- drifting ember/leaf particles, purely decorative -->
+<div class="wind-layer" id="windLayer" aria-hidden="true"></div>
+
+<!-- ===== NAV ===== -->
+<header class="site-header">
+  <a href="#home" class="brand">
+    <span class="brand-seal" aria-hidden="true">
+      <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="27"/><text x="30" y="39" text-anchor="middle">名</text></svg>
+    </span>
+    <span class="brand-name">Cris Joseph Arquiza</span>
+  </a>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav class="primary-nav" id="primaryNav">
+    <a href="#home" class="nav-link" data-jp="家路">
+      <span class="nav-en">Home</span>
+    </a>
+    <a href="#projects" class="nav-link" data-jp="作品">
+      <span class="nav-en">Works</span>
+    </a>
+    <a href="#contact" class="nav-link" data-jp="便り">
+      <span class="nav-en">Contact</span>
+    </a>
+  </nav>
+</header>
+
+<div class="nav-scrim" id="navScrim"></div>
+
+<main>
+
+  <!-- ===== HOME ===== -->
+  <section id="home" class="section hero">
+    <div class="hero-ink-wash" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <p class="eyebrow">
+        <span class="rule"></span>
+        Developer &amp; Chronically Online
+        <span class="rule"></span>
+      </p>
+
+      <h1 class="hero-title">
+        <span class="hero-title-en">Cris Joseph Arquiza</span>
+        <span class="hero-title-jp" aria-hidden="true">りじょせあうぃざ</span>
+      </h1>
+
+      <p class="hero-bio">
+        I’m a BSIT student at the University of San Carlos, working on improving my skills 
+        and getting better at software development. I’m always looking to learn more, build cool stuff, 
+        and hopefully become someone who can turn ideas into real, useful software.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-portrait">
+      <div class="portrait-ring">
+        <img src="assets/profile.jpg" alt="Portrait of Cris Joseph Arquiza" id="profileImg"
+             onerror="this.parentElement.classList.add('portrait-fallback'); this.remove();">
+        <span class="portrait-fallback-initial" aria-hidden="true">JS</span>
+      </div>
+      <svg class="portrait-brush" viewBox="0 0 220 220" aria-hidden="true">
+        <circle cx="110" cy="110" r="103" />
+      </svg>
+    </div>
+
+    <a href="#projects" class="scroll-cue" aria-label="Scroll to projects">
+      <span></span>
+    </a>
+  </section>
+
+  <div class="brush-divider" aria-hidden="true">
+    <svg viewBox="0 0 1000 40" preserveAspectRatio="none">
+      <path d="M2,20 C150,5 300,35 500,18 C700,2 850,30 998,15" />
+    </svg>
+  </div>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="section projects">
+    <header class="section-head">
+      <p class="section-kicker" data-jp="作品集">Selected Works</p>
+      <h2 class="section-title">Projects</h2>
+    </header>
+
+    <div class="project-grid">
+
+      <article class="project-card">
+        <div class="project-media" style="--tint:#8c2f2f;">
+          <img src="assets/craveh.png" alt="WeatherApp">
+        </div>
+        <div class="project-body">
+          <h3>Craveh</h3>
+          <p>A food ordering and delivery system</p>
+          <ul class="tech-list">
+            <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>mysql</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://craveh.dcism.org" target="_blank" rel="noopener noreferrer" class="link-arrow">Live Site</a>
+            <a href="https://github.com/hynnah/craveh" target="_blank" rel="noopener noreferrer" class="link-arrow">Source Code</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-media" style="--tint:#B8462E;">
+          <img src="assets/WeaherApp.png" alt="WeatherApp">
+        </div>
+        <div class="project-body">
+          <h3>Weather App</h3>
+          <p>A weather app that uses an external API to track weather reports in various cities accross the globe</p>
+          <ul class="tech-list">
+            <li>Vue</li><li>C#</li><li>XAML</li><li>MVVM</li><li>SQLite</li><li>Open-Meteo API</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/FxhsZyan/WeatherApp" target="_blank" rel="noopener noreferrer" class="link-arrow">Source Code</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-media" style="--tint:#C6A66B;">
+          <span class="project-glyph">03</span>
+        </div>
+        <div class="project-body">
+          <h3>Studymate</h3>
+          <p>A website the helps students keep track of scheduled dates, deadlines and expenses</p>
+          <ul class="tech-list">
+            <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>MySQL</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://studymate.dcism.org" target="_blank" rel="noopener noreferrer" class="link-arrow">Live Site</a>
+            <a href="https://github.com/StevenTampos/StudyMate" target="_blank" rel="noopener noreferrer" class="link-arrow">Source Code</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <div class="brush-divider" aria-hidden="true">
+    <svg viewBox="0 0 1000 40" preserveAspectRatio="none">
+      <path d="M2,25 C150,40 300,5 500,22 C700,38 850,10 998,25" />
+    </svg>
+  </div>
+
+    <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section contact">
+    <header class="section-head">
+      <p class="section-kicker" data-jp="連絡先">Reach Out</p>
+      <h2 class="section-title">Contact</h2>
+    </header>
+
+    <div class="contact-wrap contact-wrap--info">
+      <div class="contact-intro">
+        <p>Have a project, a role, or just want to say hello? Reach out through
+           any of the channels below — I read every message.</p>
+        <a href="mailto:arquizacrisjoseph@gmail.com" class="btn btn-primary">Email Me</a>
+      </div>
+
+      <ul class="contact-meta">
+        <li><span>Email</span> <a href="mailto:arquizacrisjoseph@gmail.com">arquizacrisjoseph@gmail.com</a></li>
+        <li><span>Location</span> <a href="https://www.google.com/maps/place/Cebu+City,+Cebu,+Philippines" target="_blank" rel="noopener noreferrer">Cebu City, Philippines</a></li>
+        <li><span>Available for</span> Freelance &amp; part-time</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> godspelldev.</p>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
