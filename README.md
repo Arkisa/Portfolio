@@ -7,7 +7,7 @@ dependencies, no npm install required.
 REQUIREMENTS
 ------------
 - A web browser
-- 
+
 INSTALLATION
 ------------
 1. Clone or download the repo
