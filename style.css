@@ -60,19 +60,18 @@ body::before{
 .ember{
   position:absolute;
   bottom:-5%;
-  width:5px; height:5px;
   border-radius:50%;
   background:radial-gradient(circle, var(--ember) 0%, rgba(122,151,160,0) 70%);
   opacity:0;
   animation-name:drift;
-  animation-timing-function:linear;
+  animation-timing-function:cubic-bezier(.25,.46,.45,.94);
   animation-iteration-count:infinite;
 }
 @keyframes drift{
-  0%{ transform:translate(0,0) scale(.6); opacity:0; }
-  10%{ opacity:1; }      
-  90%{ opacity:.6; }     
-  100%{ transform:translate(var(--dx,60px), -110vh) scale(1); opacity:0; }
+  0%{ transform:translate(0,0) scale(.5); opacity:0; }
+  8%{ opacity:.9; }
+  85%{ opacity:.35; }
+  100%{ transform:translate(var(--dx,60px), -110vh) scale(.85); opacity:0; }
 }
 
 /* =========================================================
@@ -715,4 +714,72 @@ main{ position:relative; z-index:2; }
 @media (max-width: 560px){
   .section{ padding:4.5rem 1.25rem; }
   .contact-meta li{ flex-direction:column; gap:.2rem; }
+}
+
+/* =========================================================
+   BOOT SCREEN
+   ========================================================= */
+.boot-screen{
+  position:fixed; inset:0;
+  z-index:1000;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:1.1rem;
+  background:var(--sumi);
+  transition:opacity .6s ease, visibility .6s ease;
+}
+.boot-screen.boot-done{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.boot-seal{ width:80px; height:80px; }
+.boot-seal-ring{
+  fill:none;
+  stroke:var(--crimson);
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-dasharray:314;
+  stroke-dashoffset:314;
+  animation:boot-draw 1.6s cubic-bezier(.65,0,.35,1) forwards;
+}
+.boot-seal text{
+  font-family:var(--font-heading);
+  font-size:34px;
+  fill:var(--bone);
+  opacity:0;
+  animation:boot-fade-in .5s ease forwards 1.3s;
+}
+@keyframes boot-draw{
+  to{ stroke-dashoffset:0; }
+}
+@keyframes boot-fade-in{
+  to{ opacity:1; }
+}
+
+.boot-godspell{
+  font-family:var(--font-heading);
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  opacity:0;
+  transform:translateY(6px);
+  animation:boot-fade-up .7s ease forwards;
+}
+.boot-godspell-en{
+  font-size:1.15rem;
+  color:var(--bone);
+  animation-delay:1.8s;
+}
+.boot-godspell-jp{
+  font-size:1rem;
+  letter-spacing:.3em;
+  color:var(--crimson);
+  animation-delay:2.3s;
+}
+@keyframes boot-fade-up{
+  to{ opacity:1; transform:translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .boot-seal-ring, .boot-seal text, .boot-godspell{ animation:none; opacity:1; stroke-dashoffset:0; transform:none; }
 }

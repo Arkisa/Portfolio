@@ -1,3 +1,13 @@
+// ===== boot screen =====
+window.addEventListener('load', () => {
+  const bootScreen = document.getElementById('bootScreen');
+  if (!bootScreen) return;
+  setTimeout(() => {
+    bootScreen.classList.add('boot-done');
+    setTimeout(() => bootScreen.remove(), 700);
+  }, 3000); 
+});
+
 // ============================================================
 // Footer year
 // ============================================================
@@ -39,16 +49,16 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 
 if (!prefersReducedMotion) {
   const windLayer = document.getElementById('windLayer');
-  const EMBER_COUNT = window.innerWidth < 720 ? 24 : 45;   // more particles
+  const EMBER_COUNT = window.innerWidth < 720 ? 90 : 160; 
 
   for (let i = 0; i < EMBER_COUNT; i++) {
     const ember = document.createElement('span');
     ember.className = 'ember';
     const left = Math.random() * 100;
-    const duration = 3 + Math.random() * 4;        
-    const delay = Math.random() * 6;                
-    const drift = (Math.random() * 400 - 200).toFixed(0) + 'px';  
-    const size = (4 + Math.random() * 6).toFixed(1) + 'px';       
+    const duration = 2 + Math.random() * 2;          
+    const delay = Math.random() * 3;
+    const drift = (Math.random() * 700 - 350).toFixed(0) + 'px';
+    const size = (5 + Math.random() * 6).toFixed(1) + 'px';   
 
     ember.style.left = left + 'vw';
     ember.style.width = size;

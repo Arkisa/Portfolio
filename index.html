@@ -12,9 +12,18 @@
 
 <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
-<!-- drifting ember/leaf particles, purely decorative -->
+<body>
+<div id="bootScreen" class="boot-screen">
+  <svg class="boot-seal" viewBox="0 0 120 120">
+    <circle class="boot-seal-ring" cx="60" cy="60" r="50" />
+    <text x="60" y="72" text-anchor="middle">名</text>
+  </svg>
+  <p class="boot-godspell boot-godspell-en">dev.godspell</p>
+  <p class="boot-godspell boot-godspell-jp">ゴッドスペル</p>
+</div>
+
+<!-- drifting ember/leaf particles -->
 <div class="wind-layer" id="windLayer" aria-hidden="true"></div>
 
 <!-- ===== NAV ===== -->
@@ -141,7 +150,7 @@
 
       <article class="project-card">
         <div class="project-media" style="--tint:#C6A66B;">
-          <span class="project-glyph">03</span>
+          <span class="project-glyph">StudyMate</span>
         </div>
         <div class="project-body">
           <h3>Studymate</h3>
@@ -175,7 +184,7 @@
     <div class="contact-wrap contact-wrap--info">
       <div class="contact-intro">
         <p>Have a project, a role, or just want to say hello? Reach out through
-           any of the channels below — I read every message.</p>
+           any of the channels below!</p>
         <a href="mailto:arquizacrisjoseph@gmail.com" class="btn btn-primary">Email Me</a>
       </div>
 
@@ -188,7 +197,7 @@
   </section>
 
   <footer class="site-footer">
-    <p>&copy; <span id="year"></span> godspelldev.</p>
+    <p>&copy; <span id="year"></span> dev.godspell</p>
   </footer>
 
 </main>
