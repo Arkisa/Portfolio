@@ -41,8 +41,3 @@ restrictions with some assets)
   python3 -m http.server 8000
 
   Then visit http://localhost:8000 (or whatever port is shown).
-
-CONTACT
--------
-Email: arquizacrisjoseph@gmail.com
-Location: Cebu City, Philippines
