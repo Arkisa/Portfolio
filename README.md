@@ -1,6 +1,3 @@
-PORTFOLIO - CRIS JOSEPH ARQUIZA
-================================
-
 Personal portfolio site. Static HTML/CSS/JS - no build tools, no
 dependencies, no npm install required.
 
