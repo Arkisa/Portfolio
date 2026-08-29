@@ -14,14 +14,15 @@
 </head>
 
 <body>
-<div id="bootScreen" class="boot-screen">
+<!-- boot screen-->
+<!-- <div id="bootScreen" class="boot-screen">
   <svg class="boot-seal" viewBox="0 0 120 120">
     <circle class="boot-seal-ring" cx="60" cy="60" r="50" />
     <text x="60" y="72" text-anchor="middle">名</text>
   </svg>
   <p class="boot-godspell boot-godspell-en">dev.godspell</p>
   <p class="boot-godspell boot-godspell-jp">ゴッドスペル</p>
-</div>
+</div> -->
 
 <!-- drifting ember/leaf particles -->
 <div class="wind-layer" id="windLayer" aria-hidden="true"></div>
@@ -108,65 +109,72 @@
 
   <!-- ===== PROJECTS ===== -->
   <section id="projects" class="section projects">
-    <header class="section-head">
-      <p class="section-kicker" data-jp="作品集">Selected Works</p>
-      <h2 class="section-title">Projects</h2>
-    </header>
+  <header class="section-head">
+    <h2 class="section-kicker" data-jp="作品集">Selected Works</h2>
+  </header>
 
-    <div class="project-grid">
+  <div class="project-carousel" id="projectCarousel">
+  <div class="carousel-viewport">
+    <div class="carousel-track" id="carouselTrack">
 
-      <article class="project-card">
-        <div class="project-media" style="--tint:#8c2f2f;">
-          <img src="assets/craveh.png" alt="WeatherApp">
-        </div>
-        <div class="project-body">
-          <h3>Craveh</h3>
-          <p>A food ordering and delivery system</p>
-          <ul class="tech-list">
-            <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>mysql</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://craveh.dcism.org" target="_blank" rel="noopener noreferrer" class="link-arrow">Live Site</a>
-            <a href="https://github.com/hynnah/craveh" target="_blank" rel="noopener noreferrer" class="link-arrow">Source Code</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-media" style="--tint:#B8462E;">
-          <img src="assets/WeaherApp.png" alt="WeatherApp">
-        </div>
-        <div class="project-body">
-          <h3>Weather App</h3>
-          <p>A weather app that uses an external API to track weather reports in various cities accross the globe</p>
-          <ul class="tech-list">
-            <li>Vue</li><li>C#</li><li>XAML</li><li>MVVM</li><li>SQLite</li><li>Open-Meteo API</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/FxhsZyan/WeatherApp" target="_blank" rel="noopener noreferrer" class="link-arrow">Source Code</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="project-media" style="--tint:#C6A66B;">
-          <span class="project-glyph">StudyMate</span>
-        </div>
-        <div class="project-body">
-          <h3>Studymate</h3>
-          <p>A website the helps students keep track of scheduled dates, deadlines and expenses</p>
+      <article class="carousel-slide">
+        <div class="carousel-info">
+          <h3 class="carousel-title">Craveh</h3>
+          <p class="carousel-desc">A food ordering and delivery system that allows customers to browse menus, place orders, and track their food deliveries online.</p>
           <ul class="tech-list">
             <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>MySQL</li>
           </ul>
-          <div class="project-links">
-            <a href="https://studymate.dcism.org" target="_blank" rel="noopener noreferrer" class="link-arrow">Live Site</a>
-            <a href="https://github.com/StevenTampos/StudyMate" target="_blank" rel="noopener noreferrer" class="link-arrow">Source Code</a>
+          <div class="carousel-links">
+            <a href="https://craveh.dcism.org" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Project</a>
+            <a href="https://github.com/hynnah/craveh" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Source Code</a>
           </div>
+        </div>
+        <div class="carousel-media" style="--tint:#8c2f2f;">
+          <img src="assets/craveh.png" alt="Craveh screenshot">
         </div>
       </article>
 
-    </div>
-  </section>
+      <article class="carousel-slide">
+        <div class="carousel-info">
+          <h3 class="carousel-title">Weather App</h3>
+          <p class="carousel-desc">A weather app that uses an external API to track weather reports in various cities across the globe</p>
+          <ul class="tech-list">
+            <li>Vue</li><li>C#</li><li>XAML</li><li>MVVM</li><li>SQLite</li><li>Open-Meteo API</li>
+          </ul>
+          <div class="carousel-links">
+            <a href="https://github.com/FxhsZyan/WeatherApp" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Source Code</a>
+          </div>
+        </div>
+        <div class="carousel-media" style="--tint:#B8462E;">
+          <img src="assets/WeaherApp.png" alt="Weather App screenshot">
+        </div>
+      </article>
+
+      <article class="carousel-slide">
+        <div class="carousel-info">
+          <h3 class="carousel-title">Studymate</h3>
+          <p class="carousel-desc">A website that helps students keep track of scheduled dates, deadlines and expenses</p>
+          <ul class="tech-list">
+            <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>MySQL</li>
+          </ul>
+          <div class="carousel-links">
+            <a href="https://studymate.dcism.org" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Project</a>
+            <a href="https://github.com/StevenTampos/StudyMate" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Source Code</a>
+          </div>
+        </div>
+        <div class="carousel-media" style="--tint:#C6A66B;">
+          <span class="project-glyph">03</span>
+        </div>
+      </article>
+     </div>
+  </div>
+  <div class="carousel-controls">
+    <button class="carousel-arrow carousel-arrow--prev" id="carouselPrev" aria-label="Previous project">‹</button>
+    <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Project slides"></div>
+    <button class="carousel-arrow carousel-arrow--next" id="carouselNext" aria-label="Next project">›</button>
+  </div>
+</div>
+</section>
 
   <div class="brush-divider" aria-hidden="true">
     <svg viewBox="0 0 1000 40" preserveAspectRatio="none">
@@ -177,8 +185,7 @@
     <!-- ===== CONTACT ===== -->
   <section id="contact" class="section contact">
     <header class="section-head">
-      <p class="section-kicker" data-jp="連絡先">Reach Out</p>
-      <h2 class="section-title">Contact</h2>
+      <h2 class="section-kicker" data-jp="連絡先">Reach Out</h2>
     </header>
 
     <div class="contact-wrap contact-wrap--info">
