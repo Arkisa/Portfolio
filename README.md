@@ -9,7 +9,7 @@ The visual design, copy, layout, animations, and interactive behavior (boot scre
 ambient ember particles, project carousel, contact section) are unchanged from the original
 vanilla HTML/CSS/JS version — only the implementation technology changed.
 
-## ◆ Project Structure
+##  Project Structure
 
 ```
 portfolio-fullstack/
@@ -25,7 +25,7 @@ portfolio-fullstack/
     └── server.js       serves frontend/dist and exposes /api/health
 ```
 
-## ◆ Setup Instructions
+## Setup Instructions
 
 **1. Install dependencies**
 
@@ -56,7 +56,7 @@ cd ../backend
 npm start           # serves the app at http://localhost:4000
 ```
 
-## ◆ Technologies Used
+## Technologies Used
 
 - **React 18 + TypeScript** (Vite build tooling)
 - **Node.js + Express** (static file server / API)
