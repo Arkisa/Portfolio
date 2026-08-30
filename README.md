@@ -1,13 +1,6 @@
-# Cris Joseph Arquiza — Portfolio (React + TypeScript / Node.js + Express)
+# Cris Joseph Arquiza — Portfolio 
 
-This is the original ink-brush, samurai-inspired portfolio site, rebuilt on:
-
-- **Frontend:** React + TypeScript (Vite)
-- **Backend:** Node.js + Express (serves the built frontend, plus a small `/api/health` endpoint)
-
-The visual design, copy, layout, animations, and interactive behavior (boot screen, mobile nav,
-ambient ember particles, project carousel, contact section) are unchanged from the original
-vanilla HTML/CSS/JS version — only the implementation technology changed.
+This is my portfolio that displays basic information about me as well as projects I have completed
 
 ##  Project Structure
 
