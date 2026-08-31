@@ -87,6 +87,8 @@ body::before{
 .header-right{ display:flex; align-items:center; gap:1.5rem; }
 
 .theme-toggle{
+  position:relative;
+  isolation:isolate;
   background:none;
   border:none;
   padding:.25rem 0;
@@ -94,12 +96,41 @@ body::before{
   cursor:pointer;
 }
 
-.theme-toggle:hover{
-  transform:translateY(-2px);
-  letter-spacing:.09em;
-  color:var(--bone);
+.theme-toggle .nav-en{
+  position:relative;
+  isolation:isolate;
 }
-.theme-toggle:active{ transform:translateY(0) scale(.96); }
+
+/* kill the inherited nav-link brush-stroke wipe for this button only */
+.theme-toggle .nav-en::before{
+  content:none;
+}
+
+.theme-toggle .nav-en::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:160%;
+  height:160%;
+  z-index:-1;
+  background:var(--crimson);
+  -webkit-mask-image:url('assets/ink-stroke-circle.png');
+  mask-image:url('assets/ink-stroke-circle.png');
+  -webkit-mask-size:100% 100%;
+  mask-size:100% 100%;
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  mask-position:center;
+  opacity:1;
+  transform:translate(-50%,-50%) scale(0) rotate(0deg);
+  transition:transform .45s cubic-bezier(.65,0,.35,1);
+}
+
+.theme-toggle.nav-link:hover .nav-en::after{
+  transform:translate(-50%,-50%) scale(1) rotate(-8deg);
+}
 
 /* ================
     LEAF PARTICLES 
@@ -633,40 +664,47 @@ main{ position:relative; z-index:2; }
 .carousel-arrow::before{
   content:"";
   position:absolute;
-  inset:-6px;
+  top:50%; left:50%;
+  width:150%; height:150%;
   z-index:-2;
-  transform:scale(0);
-  transform-origin:32% 65%;
-  border-radius:50%;
   background:var(--crimson);
-  filter:blur(7px);
-  opacity:.8;
-  transition:transform .65s cubic-bezier(.22,1,.36,1);
-}
-/* crisp inner ink fill — same brush-stroke mask as .btn */
-.carousel-arrow::after{
-  content:"";
-  position:absolute;
-  inset:-45% -15%;
-  z-index:-1;
-  background:var(--crimson);
-  -webkit-mask-image:url('assets/brush-stroke.png');
-  mask-image:url('assets/brush-stroke.png');
+  -webkit-mask-image:url('assets/ink-stroke-circle.png');
+  mask-image:url('assets/ink-stroke-circle.png');
   -webkit-mask-size:100% 100%;
   mask-size:100% 100%;
   -webkit-mask-repeat:no-repeat;
   mask-repeat:no-repeat;
   -webkit-mask-position:center;
   mask-position:center;
-  transform:scaleX(0);
-  transform-origin:left center;
-  transition:transform .55s cubic-bezier(.65,0,.35,1) .05s;
+  filter:blur(4px);
+  opacity:.7;
+  transform:translate(-50%,-50%) scale(0) rotate(0deg);
+  transition:transform .5s cubic-bezier(.22,1,.36,1);
+}
+.carousel-arrow::after{
+  content:"";
+  position:absolute;
+  top:50%; left:50%;
+  width:135%; height:135%;
+  z-index:-1;
+  background:var(--crimson);
+  -webkit-mask-image:url('assets/ink-stroke-circle.png');
+  mask-image:url('assets/ink-stroke-circle.png');
+  -webkit-mask-size:100% 100%;
+  mask-size:100% 100%;
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  mask-position:center;
+  transform:translate(-50%,-50%) scale(0) rotate(0deg);
+  transition:transform .4s cubic-bezier(.65,0,.35,1) .04s;
 }
 .carousel-arrow:hover{
   color:var(--bone);
   transform:translateY(-2px);
 }
-.carousel-arrow:hover::after{ transform:scaleX(1); }
+.carousel-arrow:hover::before{ transform:translate(-50%,-50%) scale(1) rotate(-8deg); }
+.carousel-arrow:hover::after{ transform:translate(-50%,-50%) scale(1) rotate(-8deg); }
 .carousel-arrow:active{ transform:translateY(0) scale(.94); }
 
 .carousel-dots{
@@ -882,11 +920,35 @@ main{ position:relative; z-index:2; }
 
 /* clickable variant — the seal itself acts as a real link/button */
 .hanko-seal--live{
+  position:relative;
+  isolation:isolate;
   display:inline-flex;
   cursor:pointer;
   text-decoration:none;
   transition:transform .3s var(--ease);
 }
+.hanko-seal--live::before{
+  content:"";
+  position:absolute;
+  top:50%; left:50%;
+  width:190%; height:190%;
+  z-index:-1;
+  background:var(--crimson);
+  -webkit-mask-image:url('assets/ink-stroke-circle.png');
+  mask-image:url('assets/ink-stroke-circle.png');
+  -webkit-mask-size:100% 100%;
+  mask-size:100% 100%;
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  mask-position:center;
+  opacity:.85;
+  transform:translate(-50%,-50%) scale(0) rotate(0deg);
+  transition:transform .45s cubic-bezier(.65,0,.35,1);
+}
+.hanko-seal--live:hover{ transform:scale(1.06); }
+.hanko-seal--live:hover::before{ transform:translate(-50%,-50%) scale(1) rotate(-8deg); }
+.hanko-seal--live:active{ transform:scale(.94); }
 .hanko-seal--live:hover{ transform:scale(1.06); }
 .hanko-seal--live:active{ transform:scale(.94); }
 .hanko-seal--live:focus-visible{
