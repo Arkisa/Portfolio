@@ -1,19 +1,39 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Header() {
   const [navOpen, setNavOpen] = useState(false);
+  const [sweeping, setSweeping] = useState(false);
+  const [sweepKey, setSweepKey] = useState(0);
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     if (typeof window === 'undefined') return 'dark';
     return (localStorage.getItem('theme') as 'dark' | 'light') || 'dark';
   });
+  const themeTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
 
+  useEffect(() => {
+    return () => {
+      if (themeTimeoutRef.current !== null) {
+        window.clearTimeout(themeTimeoutRef.current);
+      }
+    };
+  }, []);
+
   function toggleTheme() {
-    setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
+    setSweepKey((k) => k + 1);
+    setSweeping(true);
+
+    if (themeTimeoutRef.current !== null) {
+      window.clearTimeout(themeTimeoutRef.current);
+    }
+    // fires as the streak is crossing the middle of the screen
+    themeTimeoutRef.current = window.setTimeout(() => {
+      setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
+    }, 420);
   }
 
   function closeNav() {
@@ -67,6 +87,15 @@ export default function Header() {
       </header>
 
       <div className={`nav-scrim${navOpen ? ' is-visible' : ''}`} id="navScrim" onClick={closeNav}></div>
+
+      {sweeping && (
+        <div
+          className="theme-wipe"
+          key={sweepKey}
+          aria-hidden="true"
+          onAnimationEnd={() => setSweeping(false)}
+        ></div>
+      )}
     </>
   );
 }
