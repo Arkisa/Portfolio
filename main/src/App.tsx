@@ -5,11 +5,15 @@ import BrushDivider from './components/BrushDivider';
 import ProjectCarousel from './components/ProjectCarousel';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import SplashCursor from './components/SplashCursor';
 
 export default function App() {
   return (
     <>
-      {/* boot screen */}
+      {/* ===== SPLASH CURSOR EFFECT ===== */}
+      <SplashCursor />
+
+      {/* ===== BOOT SCREEN ===== */}
       <BootScreen />
 
       {/* ===== NAV ===== */}

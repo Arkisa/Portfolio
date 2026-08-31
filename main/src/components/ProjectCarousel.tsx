@@ -34,7 +34,7 @@ const slides: Slide[] = [
     tech: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL'],
     links: [
       {
-        label: 'View Project',
+        label: 'View Project➚',
         href: 'https://craveh.dcism.org',
         variant: 'primary',
       },
@@ -53,14 +53,7 @@ const slides: Slide[] = [
   {
     title: 'Weather App',
     desc: 'A weather app that uses an external API to track weather reports in various cities across the globe.',
-    tech: [
-      'Vue',
-      'C#',
-      'XAML',
-      'MVVM',
-      'SQLite',
-      'Open-Meteo API',
-    ],
+    tech: ['Vue','C#','XAML','MVVM','SQLite','Open-Meteo API',],
     links: [
       {
         label: 'Source Code',
@@ -80,7 +73,7 @@ const slides: Slide[] = [
     tech: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL'],
     links: [
       {
-        label: 'View Project',
+        label: 'View Project➚',
         href: 'https://studymate.dcism.org',
         variant: 'primary',
       },

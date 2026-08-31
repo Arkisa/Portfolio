@@ -1255,3 +1255,4 @@ main{ position:relative; z-index:2; }
   .hanko-face{ animation:none; opacity:1; transform:scale(1) rotate(-6deg); }
   .hanko-seal.is-stamped .hanko-face::after{ display:none; }
 }
+
