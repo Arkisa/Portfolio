@@ -12,7 +12,9 @@
   --gold-dim:  #74858a;   /* quieter steel for secondary text */
   --bone:      #e9eef0;   /* icy mist off-white, main text */
   --bone-dim:  #a9b4b6;   /* muted body text */
-
+  --font-display: 'Yuji Syuku', serif;
+  --font-heading: 'Shippori Mincho', serif;
+  --font-body: 'Noto Sans JP', 'Shippori Mincho', sans-serif;
   --container: 1200px;    /* max content width for sections */
 }
 
@@ -415,7 +417,7 @@ main{ position:relative; z-index:2; }
   letter-spacing:.18em;
   text-transform:uppercase;
   color:var(--gold-dim);
-  margin:0 0 1.5rem;
+  margin:0 0 .5rem; 
 }
 .eyebrow .rule{ width:32px; height:1px; background:var(--gold-dim); display:inline-block; }
 
@@ -423,7 +425,7 @@ main{ position:relative; z-index:2; }
 .hero-title-en{
   font-family:var(--font-display);
   font-weight:400;
-  font-size:clamp(3rem, 7vw, 5.5rem);
+  font-size:clamp(2.25rem, 4vw, 4.25rem);
   line-height:1;
   color:var(--bone);
   text-shadow:0 0 30px rgba(122,151,160,.35), 0 2px 12px rgba(0,0,0,.6);

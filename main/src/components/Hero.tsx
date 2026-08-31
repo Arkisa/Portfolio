@@ -1,3 +1,4 @@
+import ScrambledText from './ScrambledText';
 import { useState } from 'react';
 import profileImg from '../assets/profile.jpg';
 import LeafLayer from './LeafLayer';
@@ -11,15 +12,10 @@ export default function Hero() {
       <LeafLayer />
 
       <div className="hero-inner">
-        <p className="eyebrow">
-          <span className="rule"></span>
-          Developer &amp; Chronically Online
-          <span className="rule"></span>
-        </p>
 
         <h1 className="hero-title">
-          <span className="hero-title-en">Cris Joseph Arquiza</span>
-          <span className="hero-title-jp" aria-hidden="true">りじょせあうぃざ</span>
+          <ScrambledText className="hero-title-en" words={[{ fi: 'Cris Joseph Arquiza', se: 'りじょせあうぃざ' },]}/>
+          <ScrambledText className="hero-title-jp" words={[{ fi: '常時オンラインの開発者', se: 'Chronically online developer' },]}/>
         </h1>
 
         <p className="hero-bio">
