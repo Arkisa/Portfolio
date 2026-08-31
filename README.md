@@ -7,15 +7,14 @@ This is my portfolio that displays basic information about me as well as project
 ```
 portfolio-fullstack/
 ├── frontend/          React + TypeScript app (Vite)
-│   ├── src/
-│   │   ├── assets/            images (logo, profile, project screenshots, background)
-│   │   ├── components/        BootScreen, WindLayer, Header, Hero, ProjectCarousel, Contact, Footer, BrushDivider
-│   │   ├── App.tsx
-│   │   ├── main.tsx
-│   │   └── style.css          original stylesheet, unmodified
-│   └── index.html
-└── backend/           Node.js + Express server
-    └── server.js       serves frontend/dist and exposes /api/health
+    ├── src/
+    │   ├── assets/            images (logo, profile, project screenshots, background)
+    │   ├── components/        BootScreen, WindLayer, Header, Hero, ProjectCarousel, Contact, Footer, BrushDivider
+    │   ├── App.tsx
+    │   ├── main.tsx
+    │   └── style.css          stylesheet
+    └── index.html
+
 ```
 
 ## Setup Instructions
