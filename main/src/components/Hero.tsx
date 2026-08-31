@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import profileImg from '../assets/profile.jpg';
-import WindLayer from './WindLayer';
+import LeafLayer from './LeafLayer';
 
 export default function Hero() {
   const [portraitFallback, setPortraitFallback] = useState(false);
@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section id="home" className="section hero">
       <div className="hero-ink-wash" aria-hidden="true"></div>
-      <WindLayer />
+      <LeafLayer />
 
       <div className="hero-inner">
         <p className="eyebrow">

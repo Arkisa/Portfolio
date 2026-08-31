@@ -25,23 +25,14 @@ export default function Header() {
 
   return (
     <>
-      <header className="site-header">
+            <header className="site-header">
         <a href="#home" className="brand">
           <span className="brand-seal" aria-hidden="true">
             <svg viewBox="0 0 60 60"><circle cx={30} cy={30} r={27} /><text x={30} y={39} textAnchor="middle">名</text></svg>
           </span>
-          <span className="brand-name">Cris Joseph Arquiza</span>
         </a>
 
         <div className="header-right">
-          <button
-            className="theme-toggle"
-            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            onClick={toggleTheme}
-          >
-            <span aria-hidden="true">{theme === 'dark' ? '☀' : '☾'}</span>
-          </button>
-
           <button
             className="nav-toggle"
             id="navToggle"
@@ -63,6 +54,14 @@ export default function Header() {
             <a href="#contact" className="nav-link" data-jp="便り" onClick={closeNav}>
               <span className="nav-en">Contact</span>
             </a>
+            <button
+              className="nav-link theme-toggle"
+              data-jp={theme === 'dark' ? '闇' : '光'}
+              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              onClick={toggleTheme}
+            >
+              <span className="nav-en" aria-hidden="true">{theme === 'dark' ? '☀' : '☾'}</span>
+            </button>
           </nav>
         </div>
       </header>

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import craveh from '../assets/craveh.png';
 import weatherApp from '../assets/WeaherApp.png';
 import studyMate from '../assets/StudyMate.png';
+import WindLayer from './WindLayer';
 
 interface Slide {
   title: string;
@@ -149,7 +150,8 @@ export default function ProjectCarousel() {
   const active = slides[current];
 
   return (
-    <section id="projects" className="section projects">
+      <section id="projects" className="section projects">
+      <WindLayer />
       <header className="section-head">
         <h2 className="section-kicker" data-jp="作品集">
           Selected Works

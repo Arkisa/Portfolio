@@ -8,34 +8,30 @@ export default function WindLayer() {
     const windLayer = windLayerRef.current;
     if (prefersReducedMotion || !windLayer) return;
 
-    const LEAF_COUNT = window.innerWidth < 720 ? 40 : 75;
-    const LEAF_COLORS = ['#e9eef0', '#c7d0d2', '#a9b4b6'];
-    const LEAF_SHAPES = [
-      '<path d="M12 2C8 6 4 10 4 15a8 8 0 0 0 16 0c0-5-4-9-8-13z"/>',
-      '<path d="M12 3c-3 4-7 6-7 11a7 7 0 0 0 14 0c0-5-4-7-7-11z"/>',
-    ];
+    const EMBER_COUNT = window.innerWidth < 720 ? 40 : 70;
+    // rise distance is measured from the section's own height, not the
+    // viewport, so embers always travel fully off the top of their section
+    const rise = windLayer.offsetHeight * 1.15;
 
-    for (let i = 0; i < LEAF_COUNT; i++) {
-      const leaf = document.createElement('div');
-      leaf.className = 'leaf';
+    for (let i = 0; i < EMBER_COUNT; i++) {
+      const ember = document.createElement('span');
+      ember.className = 'ember';
 
-      const top = Math.random() * 100;
-      const duration = 4 + Math.random() * 4;
-      const delay = Math.random() * -duration;
-      const dy = (Math.random() * 90 - 45).toFixed(0) + 'px';
-      const size = (18 + Math.random() * 16).toFixed(1) + 'px';
-      const color = LEAF_COLORS[Math.floor(Math.random() * LEAF_COLORS.length)];
-      const shape = LEAF_SHAPES[Math.floor(Math.random() * LEAF_SHAPES.length)];
+      const left = Math.random() * 100;
+      const duration = 2 + Math.random() * 2;
+      const delay = Math.random() * 3;
+      const drift = (Math.random() * 700 - 350).toFixed(0) + 'px';
+      const size = (5 + Math.random() * 6).toFixed(1) + 'px';
 
-      leaf.style.top = top + '%';
-      leaf.style.width = size;
-      leaf.style.height = size;
-      leaf.style.setProperty('--dy', dy);
-      leaf.style.animationDuration = duration + 's';
-      leaf.style.animationDelay = delay + 's';
-      leaf.innerHTML = `<svg viewBox="0 0 24 24" fill="${color}">${shape}</svg>`;
+      ember.style.left = left + '%';
+      ember.style.width = size;
+      ember.style.height = size;
+      ember.style.setProperty('--dx', drift);
+      ember.style.setProperty('--rise', rise + 'px');
+      ember.style.animationDuration = duration + 's';
+      ember.style.animationDelay = delay + 's';
 
-      windLayer.appendChild(leaf);
+      windLayer.appendChild(ember);
     }
 
     return () => {

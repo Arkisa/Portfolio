@@ -87,26 +87,24 @@ body::before{
 .header-right{ display:flex; align-items:center; gap:1.5rem; }
 
 .theme-toggle{
-  width:34px; height:34px;
-  border-radius:50%;
-  border:1px solid var(--gold);
-  background:transparent;
-  color:var(--gold);
-  font-size:.95rem;
-  display:flex; align-items:center; justify-content:center;
+  background:none;
+  border:none;
+  padding:.25rem 0;
+  font:inherit;
   cursor:pointer;
-  transition:transform .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease);
 }
+
 .theme-toggle:hover{
-  transform:rotate(20deg);
-  border-color:var(--bone);
+  transform:translateY(-2px);
+  letter-spacing:.09em;
   color:var(--bone);
 }
+.theme-toggle:active{ transform:translateY(0) scale(.96); }
 
 /* ================
     LEAF PARTICLES 
    ================ */
-.wind-layer{
+.leaf-layer{
   position:absolute; inset:0;
   pointer-events:none;
   overflow:hidden;
@@ -138,6 +136,32 @@ body::before{
 @keyframes leaf-spin{
   from{ rotate:0deg; }
   to{ rotate:360deg; }
+}
+
+/* ================
+    EMBER PARTICLES (Contact / Projects only)
+   ================ */
+.wind-layer{
+  position:absolute; inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:0;
+}
+.ember{
+  position:absolute;
+  bottom:-5%;
+  border-radius:50%;
+  background:radial-gradient(circle, var(--ember) 0%, rgba(122,151,160,0) 70%);
+  opacity:0;
+  animation-name:ember-drift;
+  animation-timing-function:cubic-bezier(.25,.46,.45,.94);
+  animation-iteration-count:infinite;
+}
+@keyframes ember-drift{
+  0%{ transform:translate(0,0) scale(.5); opacity:0; }
+  8%{ opacity:.9; }
+  85%{ opacity:.35; }
+  100%{ transform:translate(var(--dx,60px), calc(-1 * var(--rise, 600px))) scale(.85); opacity:0; }
 }
 
 /* =========================================================
@@ -378,7 +402,7 @@ main{ position:relative; z-index:2; }
   cursor:pointer;
   overflow:visible;     
   isolation:isolate;
-  transition:letter-spacing .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease);
+  transition:letter-spacing .18s var(--ease), transform .18s var(--ease), box-shadow .18s var(--ease);
 }
 /* soft, feathered ink bleed behind the crisp fill */
 .btn::before{
@@ -392,7 +416,7 @@ main{ position:relative; z-index:2; }
   background:var(--crimson);
   filter:blur(9px);
   opacity:.8;
-  transition:transform .65s cubic-bezier(.22,1,.36,1);
+  transition:transform .32s cubic-bezier(.22,1,.36,1);
 }
 
 /* crisp fill, masked to the brush-stroke.png shape */
@@ -428,7 +452,7 @@ main{ position:relative; z-index:2; }
   mask-position:center;
   transform:scaleX(0);
   transform-origin:left center;
-  transition:transform .55s cubic-bezier(.65,0,.35,1) .05s;
+  transition:transform .28s cubic-bezier(.65,0,.35,1) .02s;
 }
 
 .btn:hover{
@@ -601,41 +625,48 @@ main{ position:relative; z-index:2; }
   line-height:1;
   display:flex; align-items:center; justify-content:center;
   cursor:pointer;
-  overflow:hidden;
+  overflow:visible;
   isolation:isolate;
   transition:letter-spacing .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease), color .35s var(--ease);
 }
+
 .carousel-arrow::before{
   content:"";
   position:absolute;
-  inset:-2px;
+  inset:-6px;
   z-index:-2;
   transform:scale(0);
+  transform-origin:32% 65%;
   border-radius:50%;
   background:var(--crimson);
-  transition:transform .5s cubic-bezier(.65,0,.35,1);
+  filter:blur(7px);
+  opacity:.8;
+  transition:transform .65s cubic-bezier(.22,1,.36,1);
 }
+/* crisp inner ink fill — same brush-stroke mask as .btn */
 .carousel-arrow::after{
   content:"";
   position:absolute;
-  top:-40%; left:-60%;
-  width:60%; height:180%;
-  background:linear-gradient(75deg, rgba(255,255,255,0) 0%, rgba(233,238,240,.55) 50%, rgba(255,255,255,0) 100%);
-  transform:skewX(-20deg) translateX(-40%);
-  opacity:0;
+  inset:-45% -15%;
   z-index:-1;
-  transition:transform .6s cubic-bezier(.22,1,.36,1), opacity .15s ease;
+  background:var(--crimson);
+  -webkit-mask-image:url('assets/brush-stroke.png');
+  mask-image:url('assets/brush-stroke.png');
+  -webkit-mask-size:100% 100%;
+  mask-size:100% 100%;
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  mask-position:center;
+  transform:scaleX(0);
+  transform-origin:left center;
+  transition:transform .55s cubic-bezier(.65,0,.35,1) .05s;
 }
 .carousel-arrow:hover{
   color:var(--bone);
   transform:translateY(-2px);
-  box-shadow:0 0 20px rgba(110,43,43,.3);
 }
-.carousel-arrow:hover::before{ transform:scale(1); }
-.carousel-arrow:hover::after{
-  transform:skewX(-20deg) translateX(220%);
-  opacity:1;
-}
+.carousel-arrow:hover::after{ transform:scaleX(1); }
 .carousel-arrow:active{ transform:translateY(0) scale(.94); }
 
 .carousel-dots{
@@ -790,12 +821,131 @@ main{ position:relative; z-index:2; }
    FOOTER + TOAST
    ========================================================= */
 .site-footer{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.6rem;
   text-align:center;
   padding:2.5rem 1rem 3rem;
   color:var(--bone-dim);
   font-size:.82rem;
   letter-spacing:.03em;
 }
+
+/* =========================================================
+   HANKO SEAL — red ink-stamp signature accent
+   ========================================================= */
+.hanko-face{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:64px;
+  height:64px;
+  /* slightly irregular circle so it reads as hand-pressed, not vector-perfect */
+  border-radius:47% 53% 52% 48% / 53% 47% 53% 47%;
+  background:radial-gradient(circle at 34% 28%, var(--crimson) 0%, var(--crimson-2) 100%);
+  box-shadow:0 8px 18px rgba(0,0,0,.35), inset 0 0 14px rgba(0,0,0,.3);
+  opacity:0;
+  transform:scale(1.9) rotate(-16deg);
+  will-change:transform, opacity;
+}
+.hanko-face::before{
+  /* faint ink grain so the fill isn't a flat vector red */
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  background-image:radial-gradient(rgba(0,0,0,.4) 1px, transparent 1px);
+  background-size:3px 3px;
+  opacity:.22;
+  mix-blend-mode:multiply;
+  pointer-events:none;
+  z-index:2;
+}
+.hanko-mark{
+  position:relative;
+  z-index:1;
+  width:60%;
+  height:60%;
+  background-color:var(--bone);
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  mask-position:center;
+  -webkit-mask-size:contain;
+  mask-size:contain;
+  transform:rotate(3deg);
+}
+
+.hanko-seal--sm .hanko-face{ width:26px; height:26px; box-shadow:0 3px 8px rgba(0,0,0,.35), inset 0 0 6px rgba(0,0,0,.3); }
+
+/* clickable variant — the seal itself acts as a real link/button */
+.hanko-seal--live{
+  display:inline-flex;
+  cursor:pointer;
+  text-decoration:none;
+  transition:transform .3s var(--ease);
+}
+.hanko-seal--live:hover{ transform:scale(1.06); }
+.hanko-seal--live:active{ transform:scale(.94); }
+.hanko-seal--live:focus-visible{
+  outline:2px solid var(--gold-dim);
+  outline-offset:4px;
+  border-radius:50%;
+}
+
+/* the actual "press" — settles in with a quick overshoot, like a stamp hitting paper */
+.hanko-seal.is-stamped .hanko-face{
+  animation:hanko-press .7s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+.hanko-seal.is-stamped .hanko-face::after{
+  content:"";
+  position:absolute;
+  inset:-6px;
+  border-radius:inherit;
+  border:2px solid var(--crimson);
+  opacity:.55;
+  animation:hanko-bleed .6s ease-out forwards;
+  animation-delay:.35s;
+}
+@keyframes hanko-press{
+  0%{ transform:scale(1.9) rotate(-16deg); opacity:0; }
+  55%{ transform:scale(.88) rotate(-4deg); opacity:1; }
+  75%{ transform:scale(1.06) rotate(-7deg); }
+  100%{ transform:scale(1) rotate(-6deg); opacity:1; }
+}
+@keyframes hanko-bleed{
+  from{ transform:scale(1); opacity:.55; }
+  to{ transform:scale(1.4); opacity:0; }
+}
+
+/* placement: an official-looking stamp in the corner of the contact card */
+@media (max-width:720px){
+  .hanko-face{ width:52px; height:52px; }
+}
+
+.contact-intro-actions{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  margin-top:.5rem;
+}
+.contact-hanko-hint{
+  color:var(--bone-dim);
+  font-size:.8rem;
+  letter-spacing:.02em;
+}
+@media (max-width:720px){
+  .contact-intro-actions{ flex-wrap:wrap; }
+}
+@media (max-width:720px){
+  .contact-intro-actions{ width:100%; justify-content:space-between; }
+  .hanko-face{ width:52px; height:52px; }
+  .hanko-kanji{ font-size:1.25rem; }
+}
+
+.footer-hanko{ margin-bottom:.1rem; }
 
 .toast{
   position:fixed;
@@ -878,6 +1028,11 @@ main{ position:relative; z-index:2; }
   .contact-meta li{ flex-direction:column; gap:.2rem; }
 }
 
+.contact, .projects{
+  position:relative;
+  isolation:isolate;
+}
+
 /* =========================================================
    BOOT SCREEN
    ========================================================= */
@@ -944,4 +1099,6 @@ main{ position:relative; z-index:2; }
 
 @media (prefers-reduced-motion: reduce){
   .boot-seal-ring, .boot-seal text, .boot-godspell{ animation:none; opacity:1; stroke-dashoffset:0; transform:none; }
+  .hanko-face{ animation:none; opacity:1; transform:scale(1) rotate(-6deg); }
+  .hanko-seal.is-stamped .hanko-face::after{ display:none; }
 }

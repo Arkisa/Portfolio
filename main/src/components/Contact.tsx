@@ -1,6 +1,10 @@
+import HankoSeal from './HankoSeal';
+import WindLayer from './WindLayer';
+
 export default function Contact() {
   return (
     <section id="contact" className="section contact">
+      <WindLayer />
       <header className="section-head">
         <h2 className="section-kicker" data-jp="連絡先">Reach Out</h2>
       </header>
@@ -9,9 +13,14 @@ export default function Contact() {
         <div className="contact-intro">
           <p>Have a project, a role, or just want to say hello? Reach out through
              any of the channels below!</p>
-          <a href="mailto:arquizacrisjoseph@gmail.com" className="btn btn-primary">Email Me</a>
+          <div className="contact-intro-actions">
+            <HankoSeal
+                className="contact-hanko"
+                href="mailto:arquizacrisjoseph@gmail.com"
+                label="Email arquizacrisjoseph@gmail.com"
+              />
+          </div>
         </div>
-
         <ul className="contact-meta">
           <li><span>Email</span> <a href="mailto:arquizacrisjoseph@gmail.com">arquizacrisjoseph@gmail.com</a></li>
           <li><span>Location</span> <a href="https://www.google.com/maps/place/Cebu+City,+Cebu,+Philippines" target="_blank" rel="noopener noreferrer">Cebu City, Philippines</a></li>
