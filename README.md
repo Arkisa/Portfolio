@@ -1,20 +1,36 @@
-# Cris Joseph Arquiza — Portfolio 
+# Cris Joseph Arquiza — Portfolio
 
-This is my portfolio that displays basic information about me as well as projects I have completed
+This is my portfolio site, showcasing basic information about me along with the projects I've completed. It's a single-page React app with a Japanese ink/brush-inspired aesthetic — boot screen intro, animated wind/leaf layers, a project carousel, and a contact section.
 
-##  Project Structure
+## Project Structure
 
 ```
-portfolio-fullstack/
-├── frontend/          React + TypeScript app (Vite)
+Portfolio(REAL)/
+└── main/                     React + TypeScript app (Vite)
+    ├── public/
+    │   └── logo.png
     ├── src/
-    │   ├── assets/            images (logo, profile, project screenshots, background)
-    │   ├── components/        BootScreen, WindLayer, Header, Hero, ProjectCarousel, Contact, Footer, BrushDivider
+    │   ├── assets/            images (logo, profile, project screenshots, brush/ink strokes, background)
+    │   ├── components/
+    │   │   ├── BootScreen.tsx
+    │   │   ├── Header.tsx
+    │   │   ├── Hero.tsx
+    │   │   ├── BrushDivider.tsx
+    │   │   ├── ProjectCarousel.tsx
+    │   │   ├── Contact.tsx
+    │   │   ├── Footer.tsx
+    │   │   ├── WindLayer.tsx
+    │   │   ├── LeafLayer.tsx
+    │   │   ├── HankoSeal.tsx
+    │   │   └── ScrambledText.tsx
     │   ├── App.tsx
     │   ├── main.tsx
-    │   └── style.css          stylesheet
-    └── index.html
-
+    │   ├── style.css          stylesheet
+    │   └── vite-env.d.ts
+    ├── index.html
+    ├── vite.config.ts
+    ├── tsconfig.json
+    └── package.json
 ```
 
 ## Setup Instructions
@@ -22,36 +38,29 @@ portfolio-fullstack/
 **1. Install dependencies**
 
 ```bash
-cd frontend && npm install
-cd ../backend && npm install
+cd main
+npm install
 ```
 
-**2. Run in development (frontend dev server + backend API)**
+**2. Run in development**
 
 ```bash
-# terminal 1
-cd frontend
-npm run dev        # http://localhost:5173
-
-# terminal 2
-cd backend
-npm run dev         # http://localhost:4000
+npm run dev          # http://localhost:5173
 ```
 
-**3. Build and run in production (backend serves the built frontend)**
+**3. Build for production**
 
 ```bash
-cd frontend
-npm run build       # outputs frontend/dist
-
-cd ../backend
-npm start           # serves the app at http://localhost:4000
+npm run build         # type-checks with tsc, then outputs to main/dist
+npm run preview        # preview the production build locally
 ```
+
+This is a static frontend-only app — the production build in `main/dist` can be deployed directly to any static host (e.g. Vercel, Netlify, GitHub Pages).
 
 ## Technologies Used
 
 - **React 18 + TypeScript** (Vite build tooling)
-- **Node.js + Express** (static file server / API)
+- **GSAP** — animations (boot screen text scramble, wind/leaf layers, brush dividers, carousel transitions)
 - **Google Fonts** — Yuji Syuku, Shippori Mincho, Noto Sans JP
 
 **Featured projects showcased on the site:**
